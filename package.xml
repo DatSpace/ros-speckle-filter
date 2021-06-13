@@ -1,0 +1,41 @@
+<package>
+  <name>r1_laser_filter</name>
+  <description>
+    Laser filter that removes singular points from the scan accounting for inf/nan,
+    which use the sensor_msgs/LaserScan type. Rework of speckle filter from ros laser_filters package.
+  </description>
+  <version>1.0.0</version>
+  <maintainer email="konkarapas@outlook.com">Konstantinos Karapas</maintainer>
+  <author>Konstantinos Karapas</author>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/laser_filters</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>filters</build_depend>
+  <build_depend>message_filters</build_depend>
+  <build_depend>laser_geometry</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>rostest</build_depend>
+  <build_depend>angles</build_depend>
+
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>filters</run_depend>
+  <run_depend>message_filters</run_depend>
+  <run_depend>laser_geometry</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>angles</run_depend>
+
+  <export>
+    <cpp cflags="-I${prefix}/include `rosboost-cfg --cflags`" lflags=""/>
+    <filters plugin="${prefix}/laser_filter_plugins.xml"/>
+  </export>
+</package>

@@ -1,0 +1,10 @@
+<class_libraries>
+  <library path="lib/liblaser_scan_filter">
+    <class name="r1_laser_filter/LaserScanSpeckleFilter" type="r1_laser_filter::LaserScanSpeckleFilter"
+	    base_class_type="filters::FilterBase<sensor_msgs::LaserScan>">
+      <description>
+ 	This is a filter that removes speckle points in a laser scan by looking at neighbor points.
+      </description>
+    </class>
+  </library>
+</class_libraries>
