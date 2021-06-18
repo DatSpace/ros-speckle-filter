@@ -22,7 +22,7 @@ namespace r1_laser_filter
       int num_valid_neighbors = 0;
       const float &range = scan.ranges[idx];
 
-      if (std::isnan(range))
+      if (std::isnan(range) || std::isinf(range))
       {
         return false;
       }
@@ -30,7 +30,7 @@ namespace r1_laser_filter
       std::vector<size_t> realNeighborsIndexes;
       for (int i = idx - 1; i >= 0; i--)
       {
-        if (!std::isnan(scan.ranges[i]))
+        if (!(std::isnan(scan.ranges[i]) || std::isinf(scan.ranges[i])))
         {
           realNeighborsIndexes.push_back(i);
           if (realNeighborsIndexes.size() == (int)window)
@@ -41,7 +41,7 @@ namespace r1_laser_filter
       }
       for (int i = idx + 1; i < scan.ranges.size(); i++)
       {
-        if (!std::isnan(scan.ranges[i]))
+        if (!(std::isnan(scan.ranges[i]) || std::isinf(scan.ranges[i])))
         {
           realNeighborsIndexes.push_back(i);
           if (realNeighborsIndexes.size() == 2 * ((int)window))
